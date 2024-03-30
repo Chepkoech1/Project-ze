@@ -224,7 +224,21 @@ const products = [
             cartItemList.appendChild(cartItemDiv);
         });
     }
-    
+    // Function to place the order
+function placeOrder(name, email, address) {
+    // Here you would typically send the order details to the server for processing
+    // For this example, we'll simply display an alert indicating successful order placement
+    window.alert('Order placed successfully!\n\nName: ' + name + '\nEmail: ' + email + '\nAddress: ' + address);
+
+    // Clear the cart and update the display
+    cartItems = [];
+    updateCartIcon();
+    updateCartDisplay();
+
+    // Close the cart view
+    handleCloseCart();
+}
+
     // Function to show the home section
     function showHome() {
         document.getElementById('home').style.display = 'block';
