@@ -31,19 +31,39 @@
     <div id="main-content" style="display: none;">
         <header>
             <div class="container">
-                <div class="logo">PIKA</div>
+                <div class="logo">PIKA </div>
                 <nav>
                     <ul>
                         <li><a href="#Home" onclick="showHome()">Home</a></li>
                         <li><a href="#AboutUs">About Us</a></li>
                         <li><a href="#ContactUs">Contact Us</a></li>
                         <li><a href="#Products" onclick="showProducts()">Products</a></li>
-                       
-                       
-                    </ul>
+                        <li><a href="#admin" onclick="showAdmin()">Admin</a></li>
+                     </ul>
                 </nav>
             </div>
         </header>
+                  <!-- Admin Content -->
+<!-- Admin Content -->
+<div class="container">
+    <div id="admin-section" style="display: none;">
+        <!-- Admin form content goes here -->
+        <h2>Add Product</h2>
+        <form id="admin-product-form">
+            <label for="admin-productName">Product Name:</label>
+            <input type="text" id="admin-productName" required>
+            <br>
+            <label for="admin-productPrice">Product Price:</label>
+            <input type="text" id="admin-productPrice" required>
+            <br>
+            <button type="submit" id="addProductBtn">Add Product</button>
+        </form>
+    </div>
+</div>
+
+
+                    
+
         <!-- home Section -->
 <section id="home" class="home-section">
     <div class="container">
@@ -140,7 +160,10 @@
         </footer>
     </div>
 
+
+
     <script src="./script.js"></script>
+   
 
 </body>
 </html>

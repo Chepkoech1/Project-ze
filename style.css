@@ -389,3 +389,62 @@ body.showCart .cartTab {
     margin-bottom: 20px;
     color: #333;
 }
+#admin-form {
+    display: none;
+}
+/* CSS for Admin Page */
+
+/* Style for the admin section */
+#admin-section {
+    display: none; /* Initially hide the admin section */
+}
+
+/* Style for the admin form */
+#admin-product-form {
+    margin-top: 20px;
+}
+
+#admin-product-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#admin-product-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#admin-product-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#admin-product-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Style for the form submit button */
+#addProductBtn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for the form submit button */
+#addProductBtn:hover {
+    background-color: #45a049;
+}
+
+/* Additional styles can be added as needed */
+
