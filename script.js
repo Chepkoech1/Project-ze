@@ -88,17 +88,29 @@ const products = [
         "name": "M gas",
         "price": "ksh1600"
       },
-      {
-        "id": "dff4",
-        "name": "pro gas",
-        "price": "ksh1600"
-      },
-      {
-        "id": "dff4",
-        "name": "M gas",
-        "price": "ksh1500"
-      },
+      { "id": "dff4","name": "pro gas","price": "ksh1600"},
+      {"id": "dff4", "name": "M gas","price": "ksh1500" },
     ]
+// Get the registration form, login container, and login form
+const registrationForm = document.getElementById("registration-form");
+const loginContainer = document.querySelector(".login-container");
+const loginForm = document.getElementById("login-form");
+
+// Add event listener to the registration form button
+registrationForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Hide the registration form
+    registrationForm.style.display = 'none';
+
+    // Hide the login container
+    loginContainer.style.display = 'flex';
+
+    // Show the login form
+    loginForm.style.display = 'block';
+});
+
+
 
 // Function to handle user registration
 document.getElementById("registration-form").addEventListener("submit", function(event) {

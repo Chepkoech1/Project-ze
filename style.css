@@ -314,48 +314,27 @@ body.showCart .cartTab {
         margin: 10px 0;
     }
 }
-/* Style the registration container */
-.registration-container {
-    display: flex;
+
+#login-form {
+    display: none;
+}
+
+
+.login-container {
+    display: none; 
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    justify-content: center; 
+    height: 100vh; 
 }
 
-/* Style the registration form */
-#registration-form {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+
+.login-container.hidden {
+    transform: translateY(-100%);
 }
 
-#registration-form input[type="text"],
-#registration-form input[type="email"],
-#registration-form input[type="password"] {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#registration-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#registration-form button:hover {
-    background-color: #218838;
-}
-
-/* Style the login container */
+.registration-container,
 .login-container {
     display: flex;
     flex-direction: column;
@@ -363,34 +342,50 @@ body.showCart .cartTab {
     margin-top: 20px;
 }
 
-/* Style the login form */
+
+#registration-form,
 #login-form {
     width: 300px;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
 }
 
+#registration-form input[type="text"],
+#registration-form input[type="email"],
+#registration-form input[type="password"],
 #login-form input[type="text"],
 #login-form input[type="password"] {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
+#registration-form button,
 #login-form button {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 12px;
+    background-color: #ffa600;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+#registration-form button:hover,
 #login-form button:hover {
     background-color: #0056b3;
+}
+
+/* Style the form headings */
+.registration-container h2,
+.login-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
 }
