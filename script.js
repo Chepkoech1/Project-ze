@@ -100,153 +100,187 @@ const products = [
       },
     ]
 
-    function showProducts() {
-        document.getElementById('home').style.display = 'none';
-        document.getElementById('products').style.display = 'block';
-        displayProducts(products);
-    }
-    
-    // Function to display products on the page
-    function displayProducts(products) {
-        const productList = document.getElementById('productList');
-        productList.innerHTML = '';
-        products.forEach(product => {
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('item');
-    
-            // Create and append product name
-            const name = document.createElement('h2');
-            name.textContent = product.name;
-            itemDiv.appendChild(name);
-    
-            // Create and append product price
-            const price = document.createElement('p');
-            price.classList.add('price');
-            price.textContent = `${product.price}`;
-            itemDiv.appendChild(price);
-    
-            // Create and append "Add to Cart" button
-            const addButton = document.createElement('button');
-            addButton.textContent = 'Add to Cart';
-            addButton.addEventListener('click', () => addToCart(product));
-            itemDiv.appendChild(addButton);
-    
-            // Append the item to the product list
-            productList.appendChild(itemDiv);
-        });
-    }
-    
-    // Function to add a product to the cart
-    function addToCart(product) {
-        cartItems.push(product);
-        updateCartIcon();
-    }
-    
-    // Function to update the cart icon with the number of items
-    function updateCartIcon() {
-        const cartIcon = document.querySelector('.icon-cart span');
-        cartIcon.textContent = cartItems.length;
-    }
-    
-    // Initialize event listeners
-    function initEventListeners() {
-        document.querySelector('.icon-cart').addEventListener('click', handleViewCart);
-        document.getElementById('closeCartViewBtn').addEventListener('click', handleCloseCart);
-        document.querySelector('.checkOut').addEventListener('click', handleCheckout);
-    }
-    
-    // Function to handle the "View Cart" action
-    function handleViewCart() {
-        const shoppingCart = document.querySelector('.cartTab');
-        shoppingCart.classList.remove('hidden');
-        document.body.classList.add('showCart');
-        updateCartDisplay();
-    }
-    
-    // Function to handle the "Close Cart" action
-    function handleCloseCart() {
-        const shoppingCart = document.querySelector('.cartTab');
-        shoppingCart.classList.add('hidden');
-        document.body.classList.remove('showCart');
-    }
-    
-    // Function to handle the checkout process
-    function handleCheckout(event) {
-        event.preventDefault();
-        
-        // Get form field values
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const address = document.getElementById('address').value.trim();
-    
-        // Validate form fields
-        if (name === '' || email === '' || address === '') {
-            alert('Please fill out all fields.');
-            return;
-        }
-    
-        // If all fields are filled out, proceed with order placement
-        placeOrder(name, email, address);
-    }
-    
-    // Function to place the order
-    function placeOrder(name, email, address) {
-        // Here you would typically send the order details to the server for processing
-        // For this example, we'll simply display an alert indicating successful order placement
-        alert('Order placed successfully!\n\nName: ' + name + '\nEmail: ' + email + '\nAddress: ' + address);
-    
-        // Clear the cart and update the display
-        cartItems = [];
-        updateCartIcon();
-        updateCartDisplay();
-    
-        // Close the cart view
-        handleCloseCart();
-    }
-    
-    // Function to update the cart display
-    function updateCartDisplay() {
-        const cartItemList = document.getElementById('cartItemList');
-        cartItemList.innerHTML = '';
-        cartItems.forEach(item => {
-            const cartItemDiv = document.createElement('div');
-            cartItemDiv.classList.add('item');
-    
-            const name = document.createElement('h2');
-            name.textContent = item.name;
-            cartItemDiv.appendChild(name);
-    
-            const price = document.createElement('p');
-            price.classList.add('price');
-            price.textContent = `${item.price}`;
-            cartItemDiv.appendChild(price);
-    
-            cartItemList.appendChild(cartItemDiv);
-        });
-    }
-    // Function to place the order
-function placeOrder(name, email, address) {
-    // Here you would typically send the order details to the server for processing
-    // For this example, we'll simply display an alert indicating successful order placement
-    window.alert('Order placed successfully!\n\nName: ' + name + '\nEmail: ' + email + '\nAddress: ' + address);
+// Function to handle user registration
+document.getElementById("registration-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-    // Clear the cart and update the display
-    cartItems = [];
-    updateCartIcon();
-    updateCartDisplay();
-
-    // Close the cart view
-    handleCloseCart();
+    
+    alert("Registration successful!");
+    document.getElementById("registration-form").reset();
+});
+// Modify the showMainContent() function to hide the registration container
+function showMainContent() {
+    document.getElementById('main-content').style.display = 'block';
+    document.querySelector('.registration-container').style.display = 'none';
 }
 
-    // Function to show the home section
-    function showHome() {
-        document.getElementById('home').style.display = 'block';
-        document.getElementById('products').style.display = 'none';
-    }
+        // Function to handle user login
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const usernameOrEmail = document.getElementById("login-username").value;
+            const password = document.getElementById("login-password").value;
+
+            // Perform authentication (you can replace this with your authentication logic)
+            if (usernameOrEmail === "sandra" && password === "123") {
+                // Simulate successful login
+                alert("Login successful!");
+                document.getElementById("login-form").reset();
+
+                // Hide the login container
+                document.querySelector('.login-container').style.display = 'none';
+
+                // Show the main content after successful login
+                showMainContent();
+            } else {
+                // Handle invalid credentials
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+
+      // Function to show the main content after login or registration
+function showMainContent() {
+    document.getElementById('main-content').style.display = 'block';
+    document.querySelector('.registration-container').style.display = 'none';
+    document.querySelector('.login-container').style.display = 'none';
+}
+
+
+        function showProducts() {
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('products').style.display = 'block';
+            displayProducts(products);
+        }
+        
+        // Function to display products on the page
+        function displayProducts(products) {
+            const productList = document.getElementById('productList');
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+        
+                // Create and append product name
+                const name = document.createElement('h2');
+                name.textContent = product.name;
+                itemDiv.appendChild(name);
+        
+                // Create and append product price
+                const price = document.createElement('p');
+                price.classList.add('price');
+                price.textContent = `${product.price}`;
+                itemDiv.appendChild(price);
+        
+                // Create and append "Add to Cart" button
+                const addButton = document.createElement('button');
+                addButton.textContent = 'Add to Cart';
+                addButton.addEventListener('click', () => addToCart(product));
+                itemDiv.appendChild(addButton);
+        
+                // Append the item to the product list
+                productList.appendChild(itemDiv);
+            });
+        }
+        
+        // Function to add a product to the cart
+        function addToCart(product) {
+            cartItems.push(product);
+            updateCartIcon();
+        }
+        
+        // Function to update the cart icon with the number of items
+        function updateCartIcon() {
+            const cartIcon = document.querySelector('.icon-cart span');
+            cartIcon.textContent = cartItems.length;
+        }
+        
+        // Initialize event listeners
+        function initEventListeners() {
+            document.querySelector('.icon-cart').addEventListener('click', handleViewCart);
+            document.getElementById('closeCartViewBtn').addEventListener('click', handleCloseCart);
+            document.querySelector('.checkOut').addEventListener('click', handleCheckout);
+        }
+        
+        // Function to handle the "View Cart" action
+        function handleViewCart() {
+            const shoppingCart = document.querySelector('.cartTab');
+            shoppingCart.classList.remove('hidden');
+            document.body.classList.add('showCart');
+            updateCartDisplay();
+        }
+        
+        // Function to handle the "Close Cart" action
+        function handleCloseCart() {
+            const shoppingCart = document.querySelector('.cartTab');
+            shoppingCart.classList.add('hidden');
+            document.body.classList.remove('showCart');
+        }
+        
+        // Function to handle the checkout process
+        function handleCheckout(event) {
+            event.preventDefault();
+            
+            // Get form field values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const address = document.getElementById('address').value.trim();
+            
+            console.log("Name:", name);
+            console.log("Email:", email);
+            console.log("Address:", address);
+        
+            
+            // If all fields are filled out, proceed with order placement
+            placeOrder(name, email, address);
+        }
+        
+        // Function to place the order
+        function placeOrder(name, email, address) {
+            // Here you would typically send the order details to the server for processing
+            // For this example, we'll simply display an alert indicating successful order placement
+            alert('Order placed successfully!\n\nName: ' + name + '\nEmail: ' + email + '\nAddress: ' + address);
+        
+            // Clear the cart and update the display
+            cartItems = [];
+            updateCartIcon();
+            updateCartDisplay();
+        
+            // Close the cart view
+            handleCloseCart();
+        }
+        
+        // Function to update the cart display
+        function updateCartDisplay() {
+            const cartItemList = document.getElementById('cartItemList');
+            cartItemList.innerHTML = '';
+            cartItems.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('item');
+        
+                const name = document.createElement('h2');
+                name.textContent = item.name;
+                cartItemDiv.appendChild(name);
+        
+                const price = document.createElement('p');
+                price.classList.add('price');
+                price.textContent = `${item.price}`;
+                cartItemDiv.appendChild(price);
+        
+                cartItemList.appendChild(cartItemDiv);
+            });
+        }
+  
     
-    // Initialize event listeners when the page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        showProducts();
-        initEventListeners();
-    });
+        // Function to show the home section
+        function showHome() {
+            document.getElementById('home').style.display = 'block';
+            document.getElementById('products').style.display = 'none';
+        }
+        
+        // Initialize event listeners when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            showProducts();
+            initEventListeners();
+        });
